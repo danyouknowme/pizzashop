@@ -14,13 +14,8 @@ import pizza
 def order_pizza(pizza: Pizza):
     """Print a description of a pizza, along with its price."""
     # create printable description of the pizza such as
-    # "small pizza with muschroom" or "small plain pizza"
-    description = pizza.size
-    if pizza.toppings:
-        description += " pizza with " + ", ".join(pizza.toppings)
-    else:
-        description += " plain cheeze pizza"
-    print(f"A {description}")
+    # "small pizza with mushroom" or "small plain pizza"
+    print(f"A {str(pizza)}")
     print("Price:", pizza.get_price())
 
 
@@ -28,7 +23,7 @@ if __name__ == "__main__":
     pizza1 = Pizza(pizza.SMALL)
     pizza1.add_topping("mushroom")
     pizza1.add_topping("tomato")
-    pizza1.add_topping("pinapple")
+    pizza1.add_topping("pineapple")
     order_pizza(pizza1)
 
     # a plain pizza

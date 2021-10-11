@@ -28,3 +28,11 @@ class Pizza:
         """Add a topping to the pizza."""
         if topping not in self.toppings:
             self.toppings.append(topping)
+
+    def __str__(self):
+        description = self.size
+        if self.toppings:
+            description += " pizza with " + ", ".join(self.toppings)
+        else:
+            description += " plain pizza"
+        return description
