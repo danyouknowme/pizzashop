@@ -1,6 +1,5 @@
 """The pizza shop to test the class of pizza."""
-from pizza import Pizza
-import pizza
+from pizza import Pizza, PizzaSize
 
 # This function shows a limitation on tool-assisted
 # refactoring in a dynamic language like Python.
@@ -20,17 +19,17 @@ def order_pizza(pizza: Pizza):
 
 
 if __name__ == "__main__":
-    pizza1 = Pizza(pizza.SMALL)
+    pizza1 = Pizza(PizzaSize.small)
     pizza1.add_topping("mushroom")
     pizza1.add_topping("tomato")
     pizza1.add_topping("pineapple")
     order_pizza(pizza1)
 
     # a plain pizza
-    pizza2 = Pizza(pizza.MEDIUM)
+    pizza2 = Pizza(PizzaSize.medium)
     order_pizza(pizza2)
 
     # pizza with only one topping
-    pizza3 = Pizza(pizza.LARGE)
+    pizza3 = Pizza(PizzaSize.large)
     pizza3.add_topping("seafood")
     order_pizza(pizza3)

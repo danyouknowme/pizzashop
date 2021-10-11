@@ -1,27 +1,37 @@
 """The pizza class to using for pizza shop."""
-SMALL = 'small'
-MEDIUM = 'medium'
-LARGE = 'large'
+from enum import Enum
+
+
+class PizzaSize(Enum):
+    """A size and price of pizza."""
+
+    small = 120
+    medium = 200
+    large = 280
+
+    @property
+    def price(self):
+        """Return the price of that pizza size."""
+        return self.value
+
+    def __str__(self):
+        """Return the size of pizza."""
+        return self.name
 
 
 class Pizza:
     """A pizza with a size and optional toppings."""
 
-    def __init__(self, size):
+    def __init__(self, size: PizzaSize):
         """Initialize the pizza with a size."""
+        if not isinstance(size, PizzaSize):
+            raise TypeError("size must be a PizzaSize")
         self.size = size
         self.toppings = []
 
     def get_price(self):
         """Price of pizza depends on size and number of toppings."""
-        if self.size == 'small':
-            price = 120 + 20*len(self.toppings)
-        elif self.size == 'medium':
-            price = 200 + 20*len(self.toppings)
-        elif self.size == 'large':
-            price = 280 + 20*len(self.toppings)
-        else:
-            raise ValueError("Unknown pizza size "+self.size)
+        price = self.size.value + 20 * len(self.toppings)
         return price
 
     def add_topping(self, topping):
@@ -30,7 +40,8 @@ class Pizza:
             self.toppings.append(topping)
 
     def __str__(self):
-        description = self.size
+        """Return the words that describe the pizza."""
+        description = str(self.size)  # or self.size.name
         if self.toppings:
             description += " pizza with " + ", ".join(self.toppings)
         else:
