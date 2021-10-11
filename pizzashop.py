@@ -11,7 +11,7 @@ import pizza
 # - if use type annotation ':Pizza' on the parameter, it should
 
 
-def order_pizza(pizza):
+def order_pizza(pizza: Pizza):
     """Print a description of a pizza, along with its price."""
     # create printable description of the pizza such as
     # "small pizza with muschroom" or "small plain pizza"
@@ -21,14 +21,14 @@ def order_pizza(pizza):
     else:
         description += " plain cheeze pizza"
     print(f"A {description}")
-    print("Price:", pizza.getPrice())
+    print("Price:", pizza.get_price())
 
 
 if __name__ == "__main__":
     pizza1 = Pizza(pizza.SMALL)
-    pizza1.addTopping("mushroom")
-    pizza1.addTopping("tomato")
-    pizza1.addTopping("pinapple")
+    pizza1.add_topping("mushroom")
+    pizza1.add_topping("tomato")
+    pizza1.add_topping("pinapple")
     order_pizza(pizza1)
 
     # a plain pizza
@@ -37,5 +37,5 @@ if __name__ == "__main__":
 
     # pizza with only one topping
     pizza3 = Pizza(pizza.LARGE)
-    pizza3.addTopping("seafood")
+    pizza3.add_topping("seafood")
     order_pizza(pizza3)
