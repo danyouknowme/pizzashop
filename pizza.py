@@ -7,7 +7,8 @@ class PizzaSize(Enum):
 
     small = 120
     medium = 200
-    large = 280
+    large = 320
+    jumbo = 450
 
     @property
     def price(self):
@@ -31,7 +32,7 @@ class Pizza:
 
     def get_price(self):
         """Price of pizza depends on size and number of toppings."""
-        price = self.size.value + 20 * len(self.toppings)
+        price = self.size.price + 20 * len(self.toppings)
         return price
 
     def add_topping(self, topping):

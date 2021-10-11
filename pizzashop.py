@@ -33,3 +33,8 @@ if __name__ == "__main__":
     pizza3 = Pizza(PizzaSize.large)
     pizza3.add_topping("seafood")
     order_pizza(pizza3)
+
+    # jumbo pizza size with one topping
+    pizza4 = Pizza(PizzaSize.jumbo)
+    pizza4.add_topping("vegetable")
+    order_pizza(pizza4)
