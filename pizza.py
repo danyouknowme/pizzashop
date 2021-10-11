@@ -1,7 +1,14 @@
+"""The pizza class to using for pizza shop."""
+SMALL = 'small'
+MEDIUM = 'medium'
+LARGE = 'large'
+
+
 class Pizza:
     """A pizza with a size and optional toppings."""
 
     def __init__(self, size):
+        """Initialize the pizza with a size."""
         self.size = size
         self.toppings = []
 
@@ -16,9 +23,8 @@ class Pizza:
         else:
             raise ValueError("Unknown pizza size "+self.size)
         return price
-    
+
     def addTopping(self, topping):
-        """Add a topping to the pizza"""
+        """Add a topping to the pizza."""
         if topping not in self.toppings:
             self.toppings.append(topping)
-
